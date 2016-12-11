@@ -11,11 +11,11 @@
 		<div class="page-header__logo">
 			<img src="img/logo.svg" width="370" height="153" alt="Барбершоп «Бородинский»">
 		</div>
-		<nav class="main-nav main-nav--closed main-nav--nojs">
+		<nav class="main-nav  main-nav--closed  main-nav--nojs">
 			<button class="main-nav__toggle" type="button">Открыть меню</button>
 			<div class="main-nav__wrapper">
 				<ul class="main-nav__items">
-					<li class="main-nav__item main-nav__item--active"><a>Главная</a></li>
+					<li class="main-nav__item  main-nav__item--active"><a>Главная</a></li>
 					<li class="main-nav__item"><a href="works.html">Наши работы</a></li>
 					<li class="main-nav__item"><a href="appointment.html">Записаться</a></li>
 					<li class="main-nav__item"><a href="contacts.html">Контакты</a></li>
@@ -31,7 +31,59 @@
 	</header>
 
 	<main>
-		
+		<section class="stats">
+			<header class="stats__header">
+				<h2 class="stats__title  visuality-hidden">Статистика Барбершопа</h2>
+				<b class="stats__slogan">Стрижка у нас<br> это выгодно!</b>
+				<p class="stats__intro">Мужская стрижка требует точного подхода. Обратимся к статистике:</p>
+				<small class="stats__legend  stats__legend--top"><sup>*</sup> – приведенные данные ложь</small>
+			</header>
+			<table class="stats__items">
+				<tr>
+					<td class="stats__value">1 500 <sup>*</sup></td>
+					<td class="stats__field">рублей вложений</td>
+				</tr>
+				<tr>
+					<td class="stats__value">7 200</td>
+					<td class="stats__field">секунд времени мастера</td>
+				</tr>
+				<tr>
+					<td class="stats__value">90 000</td>
+					<td class="stats__field">постриженных волос</td>
+				</tr>
+				<tr>
+					<td class="stats__value">500 000 <sup>*</sup></td>
+					<td class="stats__field">лайков и комплиментов</td>
+				</tr>
+			</table>
+			<small class="stats__legend  stats__legend--bottom"><sup>*</sup> – приведенные данные ложь</small>
+		</section>
+		<section class="adventages">
+			<div class="adventages__wrapper  slider">
+				<input class="slider__input" type="radio" name="adventages" id="adventages-input-1" checked>
+				<input class="slider__input" type="radio" name="adventages" id="adventages-input-2">
+				<input class="slider__input" type="radio" name="adventages" id="adventages-input-3">
+				<ul class="adventages__items">
+					<li class="adventages__item  adventages__item--fast  slider__item">
+						<h3 class="adventages__item-title">Быстро</h3>
+						<p>Мы делаем свою работу быстро! Два часа пролетят незаметно и Вы счастливый обладатель стильной стрижки-минутки</p>
+					</li>
+					<li class="adventages__item  adventages__item--fast  slider__item">
+						<h3 class="adventages__item-title">Круто</h3>
+						<p>Забудьте, как вы стриглись раньше. Мы сделаем из Вас звезду футбола или кино. Во всяком случае внешне.</p>
+					</li>
+					<li class="adventages__item  adventages__item--fast  slider__item">
+						<h3 class="adventages__item-title">Дорого</h3>
+						<p>Наши мастера — профессионалы своего дела и не могут стоить дёшево. К тому же, разве цена не даёт определённый статус?</p>
+					</li>
+				</ul>
+				<div class="adventages__toggles  slider__toggles">
+					<label class="slider__toggle" for="adventages-input-1">1</label>
+					<label class="slider__toggle" for="adventages-input-2">2</label>
+					<label class="slider__toggle" for="adventages-input-3">3</label>
+				</div>
+			</div>
+		</section>
 	</main>
 
 	<footer>
