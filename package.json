@@ -1,21 +1,35 @@
 {
-  "name": "First-workflow-model",
-  "version": "0.0.1",
-  "description": "Snipcart Frontend Gulp frontend workflow",
-  "author": "Snipcart",
+  "name": "shop-adaptiv",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Учебный проект «BarberShop - adaptiv»",
   "devDependencies": {
-    "browser-sync": "^2.17.5",
-    "coffee-script": "1.10.x",
-    "css-mqpacker": "^5.0.1",
-    "gulp": "~3.9.x",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-imagemin": "^3.1.1",
-    "gulp-plumber": "^1.1.0",
-    "gulp-postcss": "^6.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^2.2.0"
+    "@htmlacademy/editorconfig-cli": "0.1.x",
+    "autoprefixer": "6.5.3",
+    "browser-sync": "2.18.2",
+    "gulp": "3.9.1",
+    "gulp-install": "^0.6.0",
+    "gulp-less": "3.3.0",
+    "gulp-plumber": "1.1.0",
+    "gulp-postcss": "6.2.0"
   },
-  "license": "MIT"
+  "scripts": {
+    "test": "editorconfig-cli",
+    "build": "gulp style",
+    "start": "gulp serve"
+  },
+  "editorconfig-cli": [
+    "*.html",
+    "*.json",
+    "*.js",
+    "js/**/*.js",
+    "img/**/*.svg",
+    "less/**/*.less"
+  ],
+  "engines": {
+    "node": "6.7"
+  },
+  "dependencies": {
+    "gulp-install": "^0.6.0"
+  }
 }
