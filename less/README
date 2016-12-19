@@ -9,3 +9,5 @@ http://lesscss.org
 less/
 | - style.less
 | - [другие *.less файлы]
+| - blocks/
+		- [БЭМ блоки *.less]
