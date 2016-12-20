@@ -11,13 +11,12 @@
 	list-style: none;
 }
 
-
 .main-nav__items {
-
+	
 }
 
 .main-nav__user-items {
-
+	
 }
 
 @media @tablet-widths {
@@ -32,17 +31,38 @@
 		.clearfix();
 	}
 
+	.main-nav__items {
+		float: left;
+		width: 570px;
+	}
+
+	.main-nav__user-items {
+		float: right;
+		width: 60px;
+	}
+
 	.main-nav__item {
-	display: inline-block;
+		display: inline-block;
 
-	vertical-align: top;
-}
+		vertical-align: top;
+	}
+
 }
 
+@media @desktop-widths {
+
+	.main-nav__items {		
+		width: 780px;
+	}
+
+	.main-nav__user-items {		
+		width: 160px;
+	}
+	
+}
 
 
 
 .main-nav--nojs .main-nav__toggle {
 	display: none;
 }
-

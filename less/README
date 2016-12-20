@@ -10,4 +10,4 @@ less/
 | - style.less
 | - [другие *.less файлы]
 | - blocks/
-		- [БЭМ блоки *.less]
+		|- [БЭМ блоки *.less]
