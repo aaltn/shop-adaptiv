@@ -18,47 +18,75 @@
 	margin: 0;
 	padding: 0 20px;
 
-	outline: 1px dotted green;
+	// outline: 1px dotted green;
 }
 
 .page-footer__contacts a {
-	display: inline-block;
-	
+	display: block;
+
+	width: auto;
 	margin-top: 20px;
 	margin-bottom: 26px;
+
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 48px;
+	text-decoration: none;
+
+	border: 1px solid #3e3e3e;
+	color: #ffffff;
+
+	cursor: pointer;
+
+	&:hover {
+		border-color: #515151;
+	}
+
+	&:active {
+		color: #676767;
+		border-color: #252525;
+		background-color: #252525;
+	}
 }
 
 .page-footer__social {
 	margin: 0;
 
-	outline: 1px dotted green;
+	// outline: 1px dotted green;
 }
 
-.social-links {
+// .social-links {
+// 	font-size: 0;
+// }
 
+// .social-link {
+// 	display: inline-block;
+// 	width: 104px;
+// 	height: 101px;
 
-	font-size: 0;
-}
+// 	vertical-align: top;
 
-.social-link {
-	display: inline-block;
-	width: 104px;
-	height: 101px;
-
-	vertical-align: top;
-
-	border: 1px solid grey;
-}
+// 	border: 1px solid grey;
+// }
 
 .page-footer__copyright {
+
+	
 	margin: 0;
 	padding: 0 20px;
 	padding-top: 30px;
 
-	outline: 1px dotted green;
+	// outline: 1px dotted green;
 }
 
-.page-footer__copyright-link {}
+.page-footer__copyright-link {
+	width: auto;
+	margin-top: 10px;
+
+	border: 1px solid #3e3e3e;
+	color: #ffffff;
+	background-color: #292929;
+}
 
 @media @mobile-widths-only {
 	
@@ -69,6 +97,24 @@
 }
 
 @media @tablet-widths {
+	.page-footer {
+		position: relative;
+
+		padding-top: 45px;
+		
+		&::after {
+			content: "";
+
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 45px;
+
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 45' preserveAspectRatio='none'><polygon points='0,0 600,0 300,45' style='fill:#f8f5f2;stroke:none;' /></svg>");
+			
+		}
+	}
 
 	.page-footer__contacts {
 		padding: 0;
@@ -97,6 +143,15 @@
 }
 
 @media @desktop-widths {
+
+	.page-footer {
+		padding-top: 65px;
+
+		&::after {
+			height: 65px;
+			// background-size: 100% 65px;	
+		}
+	}
 
 	.page-footer__wraper {
 
