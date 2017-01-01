@@ -1691,13 +1691,26 @@ table {
   padding-top: 30px;
 }
 .page-footer__copyright-link {
-  width: auto;
   margin-top: 10px;
   border: 1px solid #3e3e3e;
   color: #ffffff;
   background-color: #292929;
+  text-transform: none;
+  font-style: italic;
 }
 @media (max-width: 767px) {
+  .page-footer__wraper {
+    padding-top: 70px;
+  }
+  .page-footer__wraper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 45' preserveAspectRatio='none'><polygon points='0,0 600,0 300,45' style='fill:#f8f5f2;stroke:none;' /></svg>");
+  }
   .page-footer__hidden {
     position: absolute;
     width: 1px;
@@ -1707,6 +1720,9 @@ table {
     border: 0;
     clip: rect(0 0 0 0);
     overflow: hidden;
+  }
+  .page-footer__copyright-link {
+    width: auto;
   }
 }
 @media (min-width: 768px) {
@@ -1730,9 +1746,7 @@ table {
   }
   .page-footer__contacts a {
     display: inline;
-  }
-  .social-link {
-    width: 211px;
+    border: none;
   }
   .page-footer__copyright {
     position: absolute;
@@ -1762,18 +1776,6 @@ table {
   .page-footer__social {
     max-width: 300px;
     margin: 0 auto;
-  }
-  .social__title {
-    display: block;
-    margin-bottom: 16px;
-  }
-  .social-link {
-    width: 50px;
-    height: 50px;
-    margin-right: 6px;
-  }
-  .social-link:last-child {
-    margin-right: 0;
   }
   .page-footer__copyright {
     top: 55px;
@@ -1825,9 +1827,6 @@ table {
   margin-left: -12px;
   background-position: -10px -312px;
 }
-.social-link--fb {
-  width: 32.8125%;
-}
 .social-link--fb::after {
   top: 28px;
   left: 50%;
@@ -1843,4 +1842,41 @@ table {
   height: 36px;
   margin-left: -18px;
   background-position: -10px -109px;
+}
+@media (max-width: 767px) {
+  .social-link {
+    width: 104px;
+  }
+}
+@media (min-width: 768px) {
+  .social-link {
+    width: 211px;
+  }
+}
+@media (min-width: 1200px) {
+  .social__title {
+    display: block;
+    margin-bottom: 16px;
+  }
+  .social-link {
+    width: 50px;
+    height: 50px;
+    margin-right: 6px;
+  }
+  .social-link::after {
+    top: 6px;
+    left: 50%;
+  }
+  .social-link--vk::after {
+    background-position: -6px -348px;
+  }
+  .social-link--fb::after {
+    background-position: -7px -61px;
+  }
+  .social-link--inst::after {
+    background-position: -2px -156px;
+  }
+  .social-link:last-child {
+    margin-right: 0;
+  }
 }

@@ -5,14 +5,20 @@
 	<title>Adaptive Barbershop</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
 
 	<header class="page-header">
 		<h1 class="visually-hidden">Барбершоп «Бородинский» - истинно мужская классика</h1>
 		<div class="page-header__logo">
-			<img src="img/logo.svg" width="370" height="153" alt="Барбершоп «Бородинский»">
+			<picture>
+				<source media="(min-width: 1200px)"
+				srcset="img/logotype-desktop.svg">
+				<source media="(min-width: 768px)"
+				srcset="img/logotype-tablet.svg">
+				<img src="img/logotype-mobile.svg" width="370" height="153" alt="Барбершоп «Бородинский»">
+			</picture>			
 		</div>
 		<nav class="main-nav  main-nav--closed  main-nav--nojs">
 			<button class="main-nav__toggle" type="button">Открыть меню</button>
@@ -122,21 +128,39 @@
 				<div class="reviews__items">
 					<blockquote class="reviews__item  slider__item">
 						<div class="reviews__author-photo">
-							<img src="img/barker3.jpg" width="49" height="46" alt="Фото Тревиса Баркера">
+							<picture>
+								<source media="(min-width: 1200px)"
+								srcset="img/barker3.jpg">
+								<source media="(min-width: 768px)"
+								srcset="img/barker2.jpg">
+								<img src="img/barker2.jpg" width="49" height="46" alt="Фото Тревиса Баркера">
+							</picture>
 						</div>					
 						<cite class="reviews__author-name">Тревис Баркер</cite>
 						<p>Спасибо за лысину! Был проездом в Москве, заскочил побриться, чтобы было видно новую татуировку!</p>
 					</blockquote>
 					<blockquote class="reviews__item  slider__item">
 						<div class="reviews__author-photo">
-							<img src="img/djohn-smit.jpg" width="49" height="46" alt="Фото Джона Смит">
+							<picture>
+								<source media="(min-width: 1200px)"
+								srcset="img/djohn-smit3.jpg">
+								<source media="(min-width: 768px)"
+								srcset="img/djohn-smit2.jpg">
+								<img src="img/djohn-smit1.jpg" width="49" height="46" alt="Фото Джона Смит">
+							</picture>							
 						</div>
 						<cite class="reviews__author-name">Джон Смит</cite>
 						<p>Отличную стрижку мне сделали ребята.</p>
 					</blockquote>
 					<blockquote class="reviews__item  slider__item">
 						<div class="reviews__author-photo">
-							<img src="img/borodailo.jpg" width="49" height="46" alt="Фото Ивана Бородайло">
+							<picture>
+								<source media="(min-width: 1200px)"
+								srcset="img/borodailo3.jpg">
+								<source media="(min-width: 768px)"
+								srcset="img/borodailo2.jpg">									
+								<img src="img/borodailo1.jpg" width="49" height="46" alt="Фото Ивана Бородайло">
+							</picture>
 						</div>
 						<cite class="reviews__author-name">Иван Бородайло</cite>
 						<p>В Бородинском ваша борода в надёжных руках</p>
@@ -171,7 +195,7 @@
 				</span>				
 			</p>
 			<p class="page-footer__copyright">
-				Сверстанно: <br>
+				Сверстано: <br>
 				<a class="page-footer__copyright-link  btn" href="https://github.com/aaltn" >HTML&CSS coder</a>
 			</p>
 		</div>
@@ -183,7 +207,7 @@
 		var navToggle = document.querySelector('.main-nav__toggle');
 
 		navMain.classList.remove('main-nav--nojs');	
-	
+
 		navToggle.addEventListener('click', function() {
 
 			if (navMain.classList.contains('main-nav--closed')) {
@@ -194,7 +218,42 @@
 				navMain.classList.add('main-nav--closed');
 			}
 		});
-	</script>
 
+		
+		var sliderInput1 = document.getElementById('reviews-input-1')
+		var sliderInput2 = document.getElementById('reviews-input-2')
+		var sliderInput3 = document.getElementById('reviews-input-3')
+		var prevBtn = document.querySelector('.reviews__prev');
+		var nextBtn = document.querySelector('.reviews__next');
+
+		nextBtn.onclick =  function() {			
+			if (sliderInput1.checked) {
+				sliderInput1.checked = false;				
+				sliderInput2.checked = true;					
+			} else {
+				if (sliderInput2.checked) {
+					sliderInput2.checked = false;
+					sliderInput3.checked = true;			
+				} else {
+					sliderInput3.checked = false;
+					sliderInput1.checked = true;
+				}				
+			}
+		};
+		prevBtn.onclick =  function() {			
+			if (sliderInput3.checked) {
+				sliderInput3.checked = false;				
+				sliderInput2.checked = true;					
+			} else {
+				if (sliderInput2.checked) {
+					sliderInput2.checked = false;
+					sliderInput1.checked = true;			
+				} else {
+					sliderInput1.checked = false;
+					sliderInput3.checked = true;
+				}				
+			}
+		};
+	</script>
 </body>
 </html>
