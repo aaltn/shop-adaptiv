@@ -6,9 +6,9 @@
 	
 }
 
-.page-footer__wraper {
-	position: relative;
-	.container();
+.page-footer__wraper {	
+	// .container();
+	.container-fluid();
 
 	padding-top: 35px;
 	padding-bottom: 25px;
@@ -23,8 +23,8 @@
 
 .page-footer__contacts a {
 	display: block;
-
 	width: auto;
+	margin: 0 7%;
 	margin-top: 20px;
 	margin-bottom: 26px;
 
@@ -81,6 +81,7 @@
 
 .page-footer__copyright-link {
 	// width: auto;
+	// margin: 0 7%;
 	margin-top: 10px;
 
 	border: 1px solid #3e3e3e;
@@ -94,6 +95,8 @@
 @media @mobile-widths-only {
 
 	.page-footer__wraper {
+		position: relative;
+
 		padding-top: 70px;
 
 		&::after {
@@ -117,13 +120,15 @@
 
 	.page-footer__copyright-link {
 		width: auto;
+		margin-left: 7%;
+		margin-right: 7%;
 	}
 
 }
 
 @media @tablet-widths {
 	.page-footer {
-		position: relative;
+		position: relative;		
 
 		padding-top: 45px;
 		
@@ -142,30 +147,50 @@
 		}
 	}
 
+	.page-footer__wraper {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
 	.page-footer__contacts {
 		padding: 0;
 		padding-bottom: 50px;
 		text-align: left;
+
+		order: 1;
 	}
 
 	.page-footer__contacts a {
 		display: inline;
+		margin: 0;
+
+		font-weight: normal;
 
 		border: none;
+		cursor: default;
 	}
 
-	// .social-link {
-	// 	width: 211px;
-	// }
+	.page-footer__social {
+		width: 100%;
+
+		order: 3;
+	}
 
 	.page-footer__copyright {
-		position: absolute;
-		top: 35px;
-		right: 0;
+		// position: absolute;
+		// top: 35px;
+		// right: 0;
 
 		margin: 0;
 		padding: 0;
 		padding-top: 0;
+
+		order: 2;
+	}
+
+	.page-footer__copyright-link {
+		// margin: 0;
 	}
 
 }
@@ -188,14 +213,17 @@
 	}
 
 	.page-footer__contacts {
-		display: block;
-		float: left;
+		// display: block;
+		// float: left;
 		max-width: 325px;
 	}
 
 	.page-footer__social {		
 		max-width: 300px;
-		margin: 0 auto;
+		// margin: 0 auto;
+		margin-right: 158px;
+
+		order: 2;
 	}
 
 	// .social__title {
@@ -215,11 +243,13 @@
 
 	.page-footer__copyright {
 		top: 55px;
+
+		order: 3;
 	}
 
 }
 
-//только для десктопа
+//показываем заголовок только для десктопа
 @media (max-width: 1201px) {
 
 	.social__title {

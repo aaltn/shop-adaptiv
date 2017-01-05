@@ -3,7 +3,10 @@
 }
 
 .reviews__wrapper {
-	.container();
+	position: relative;
+	
+	// .container();
+	.container-fluid();
 
 	padding-top: 29px;
 	// padding-bottom: 90px;
@@ -60,6 +63,7 @@
 }
 
 .reviews__toggles {
+	position: absolute;
 	left: 0;
 	right: 0;
 
@@ -120,11 +124,16 @@
 	}
 
 	.reviews__wrapper {
-		
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		height: auto;
+		padding: 0;
 	}
 
 	.reviews__title {
-		margin-right: 200px;
+		// margin-right: 200px;
+		margin-right: 26%; /* 200 / 768 ~= 26% */
 		margin-bottom: 40px;    
 
 		font-size: 40px;
@@ -132,23 +141,34 @@
 	}
 
 	.reviews__write {
-		position: absolute;
-		top: 0;
-		right: 0;
+		// position: absolute;
+		// top: 0;
+		// right: 0;
 	}
 
 	.reviews__items {
-		position: relative;		
+		// position: relative;	
+
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+
+		width: 100%;
+		min-height: 160px;	
 	}
 
 	.reviews__item {
-		min-height: 92px;
-		margin: 0 50px;
+		// min-height: 92px;
+		// margin: 0 50px;
+		// width: 100%;
+		margin: 0;
 		padding: 30px 0;		
 		padding-left: 140px;
 
 		border-top: 1px solid #e5ddd5;
 		border-bottom: 1px solid #e5ddd5;		
+
+		order: 2;
 	}
 
 	.reviews__author-photo {
@@ -169,9 +189,9 @@
 
 	.reviews__prev,
 	.reviews__next {
-		position: absolute;
-		top: 0;
-		bottom: 0;
+		// position: absolute;
+		// top: 0;
+		// bottom: 0;
 
 		min-width: 50px;
 		// height: 160px;
@@ -203,7 +223,8 @@
 	}
 
 	.reviews__prev {
-		left: 0;
+		// left: 0;
+		order: 1;
 
 		&::after {
 			margin-left: -12px;
@@ -219,7 +240,8 @@
 	}
 
 	.reviews__next {
-		right: 0;
+		// right: 0;
+		order: 3;
 
 		&::after {
 			margin-right: -12px;
@@ -235,8 +257,8 @@
 	}
 
 	.reviews__toggles {   
-		bottom: 14px;
-		margin: 0 40%;    
+		bottom: -5px;
+		margin: 0 42%;    
 	}
 
 }
@@ -245,7 +267,7 @@
 
 	.reviews {
 		padding-top: 37px;
-		padding-bottom: 37px;
+		padding-bottom: 44px;
 
 	}
 
@@ -255,7 +277,8 @@
 
 	.reviews__item {
 		min-height: 98px;
-		margin: 0 70px;
+		// margin: 0 70px;
+		margin: 0 20px;
 		padding-left: 318px;
 
 		border: 1px solid #e5ddd5;
@@ -273,8 +296,8 @@
 		border-radius: 0;
 	}
 
-		.reviews__toggles {   
-		bottom: -33px;
+	.reviews__toggles {   
+		bottom: -44px;
 		
 	}
 

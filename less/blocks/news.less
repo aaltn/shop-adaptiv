@@ -3,7 +3,8 @@
 }
 
 .news__wraper {
-	.container();	
+	// .container();
+	.container-fluid();
 
 	position: relative;
 	
@@ -94,17 +95,22 @@
 
 	.news__wraper {		
 
-		&::after {
+		&::before {
 			content: "";
 
 			position: absolute;
 			top: 0;
-			height: 0;
-			width: 0;
+			left: 0;
+			right: 0;
+			height: 35px;
 			
-			border-left: 160px solid transparent;
-			border-right: 160px solid transparent;
-			border-top: 35px solid #292929;
+			// border-left: 160px solid transparent;
+			// border-right: 160px solid transparent;
+			// border-top: 35px solid #292929;			
+
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 45' preserveAspectRatio='none'><polygon points='0,0 600,0 300,45' style='fill:rgb(41,41,41);stroke:none;' /></svg>");
+			background-repeat: no-repeat;
+			background-size: 100% 35px;	
 		}
 	}
 
@@ -120,7 +126,8 @@
 
 	.news__to-all {
 		width: auto;
-		margin: 0 20px;
+		// margin: 0 20px;
+		margin: 0 10%;
 	}
 
 }
@@ -137,7 +144,7 @@
 		color: #000000;
 		background-color: @bg-lightgrey;
 
-		&::after {
+		&::before {
 			content: "";
 
 			position: absolute;
@@ -153,25 +160,39 @@
 	}
 
 	.news__wraper {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding: 0;
 		padding: 0;
 	}
 
 	.news__title {
-		margin-right: 200px;
+		// margin-right: 200px;
+		margin-right: 26%; /* 200 / 768 ~= 26% */
 		margin-bottom: 55px;
+		padding-top: 8px;
 
 		font-size: 40px;
 		text-align: left;
 	}
 
 	.news__items {
-		padding-bottom: 40px;
-		font-size: 0;
+		display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    // padding-bottom: 40px;
+
+    font-size: 0;
+
+    order: 3;		
 	}
 
 	.news__item {
 		display: inline-block;
-		width: 220px;
+		// width: 220px;
+		min-width: 220px;
 		margin: 0;
 		padding: 0 30px;
 		padding-left: 69px;
@@ -195,7 +216,7 @@
 		padding-top: 120px;
 		padding-bottom: 32px;
 
-		&::after {
+		&::before {
 			height: 65px;
 
 			background-size: 100% 65px;	
