@@ -17,38 +17,43 @@ var run = require("run-sequence");
 
 gulp.task("style", function() {
   gulp.src("less/style.less")
-    .pipe(plumber())
-    .pipe(less())
-    .pipe(postcss([
-      autoprefixer({browsers: [
-        "last 2 versions"
+  .pipe(plumber())
+  .pipe(less())
+  .pipe(postcss([
+    autoprefixer({browsers: [
+      "last 2 versions"
       ]}),
-	  mqpacker({sort: true})
+    mqpacker({
+      sort: true
+      // sort: function (a, b) {
+          // return a.localeCompare(b);
+        // }
+      })
     ]))
-    .pipe(gulp.dest("build/css"))
-    .pipe(minify())
-    .pipe(rename("style.min.css"))
-    .pipe(gulp.dest("build/css"))
-    .pipe(server.stream());
+  .pipe(gulp.dest("build/css"))
+  .pipe(minify())
+  .pipe(rename("style.min.css"))
+  .pipe(gulp.dest("build/css"))
+  .pipe(server.stream());
 });
 
 gulp.task("images", function() {
   return gulp.src("build/img/**/*.{png,jpg,gif}")
-    .pipe(imagemin([
-      imagemin.optipng({optimizationLevel: 3}),
-      imagemin.jpegtran({progressive: true})
+  .pipe(imagemin([
+    imagemin.optipng({optimizationLevel: 3}),
+    imagemin.jpegtran({progressive: true})
     ]))
-    .pipe(gulp.dest("build/img"));
+  .pipe(gulp.dest("build/img"));
 });
 
 gulp.task("symbols", function() {
   return gulp.src("build/img/*.svg")
-    .pipe(svgmin())
-    .pipe(svgstore({
-      inlineSvg: true
+  .pipe(svgmin())
+  .pipe(svgstore({
+    inlineSvg: true
   }))
-    .pipe(rename("symbols.svg"))
-    .pipe(gulp.dest("build/img"));
+  .pipe(rename("symbols.svg"))
+  .pipe(gulp.dest("build/img"));
 });
 
 gulp.task("serve", function() {
@@ -61,7 +66,8 @@ gulp.task("serve", function() {
   });
 
   gulp.watch("less/**/*.less", ["style"]);
-  gulp.watch("*.html").on("change", server.reload);
+  gulp.watch("js/*.js", ["copy-js"]);
+  gulp.watch("*.html", ["copy-html"]).on("change", server.reload);
 });
 
 gulp.task("copy", function(){
@@ -70,15 +76,33 @@ gulp.task("copy", function(){
     "img/**",
     "js/**",
     "*.html"
-  ], {
-    base: "."
-  })
+    ], {
+      base: "."
+    })
   .pipe(gulp.dest("build"));
 })
 
 gulp.task("clean", function() {
   return del("build");
 });
+
+gulp.task("copy-html", function(){
+  return gulp.src([    
+    "*.html"
+    ], {
+      base: "."
+    })
+  .pipe(gulp.dest("build"));
+})
+
+gulp.task("copy-js", function(){
+  return gulp.src([    
+    "js/**"
+    ], {
+      base: "."
+    })
+  .pipe(gulp.dest("build"));
+})
 
 gulp.task("build", function(fn) {
   run("clean", "copy" ,"style", "images", "symbols", fn);
