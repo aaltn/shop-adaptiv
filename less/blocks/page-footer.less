@@ -99,7 +99,7 @@
 
 		padding-top: 70px;
 
-		&::after {
+		&::before {
 			content: "";
 
 			position: absolute;
@@ -111,6 +111,13 @@
 			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 45' preserveAspectRatio='none'><polygon points='0,0 600,0 300,45' style='fill:rgb(248,245,242);stroke:none;' /></svg>");
 			background-size: 100% 35px;	
 			
+		}
+	}
+
+	.inner-page .page-footer__wraper {
+
+		&::before {
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 45' preserveAspectRatio='none'><polygon points='0,0 600,0 300,45' style='fill:rgb(53,53,53);stroke:none;' /></svg>");
 		}
 	}
 	
@@ -132,7 +139,7 @@
 
 		padding-top: 45px;
 		
-		&::after {
+		&::before {
 			content: "";
 
 			position: absolute;
@@ -144,6 +151,13 @@
 			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 45' preserveAspectRatio='none'><polygon points='0,0 600,0 300,45' style='fill:rgb(248,245,242);stroke:none;' /></svg>");
 			background-repeat: no-repeat;
 			background-size: 100% 45px;	
+		}
+	}
+
+// .inner-page - стили для внутренних страниц
+	.inner-page .page-footer {
+		&::before {
+			background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 45' preserveAspectRatio='none'><polygon points='0,0 600,0 300,45' style='fill:rgb(53,53,53);stroke:none;' /></svg>");
 		}
 	}
 
@@ -200,7 +214,7 @@
 	.page-footer {
 		padding-top: 65px;
 
-		&::after {
+		&::before {
 			height: 65px;
 			
 			background-size: 100% 65px;	
