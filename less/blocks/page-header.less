@@ -55,11 +55,28 @@
 	}
 	
 // стили для внутренних страниц
-	.inner-page .page-header__logo {
-		height: 214px;		
-	}
+.inner-page .page-header__logo {
+	height: 214px;	
 
-	.inner-page .page-header__logo {
+	&::after {
+		content: "";
+
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 41px;
+
+		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 45' preserveAspectRatio='none'><polygon points='0,0 0,45 600,45 600,0 300,45' style='fill:rgb(248,245,242);stroke:none;' /></svg>");
+		background-size: 100% 41px;		
+	}
+}
+
+.inner-page .page-header__logo img {
+	bottom: 70px;
+}
+
+.inner-page .page-header__logo {
 		// display: none;
 	}
 
@@ -87,6 +104,16 @@
 	// стили для внутренних страниц
 	.inner-page .page-header__logo {
 		height: 307px;		
+
+		&::after {
+			height: 65px;
+
+			background-size: 100% 65px;	
+		}
+	}
+
+	.inner-page .page-header__logo img {
+		bottom: 99px;
 	}
 
 }
