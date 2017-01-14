@@ -31,13 +31,66 @@
   }
 }
 
-.container-fluid {
+.container-fluid() {
   width: auto;
   
   @media @tablet-widths {
     width: 84%;         /* 640px / 768px = 84% */
     max-width: 960px;   /* 960px / 0.84 = 1142px  
-                        (центровка начинается чуть раньше 1200px) */
+    (центровка начинается чуть раньше 1200px) */
     margin: 0 auto;
   }
+}
+
+.polygon() {
+  position: relative;
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35px;
+
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 45' preserveAspectRatio='none'><polygon points='0,0 0,45 600,45 600,0 300,45' style='fill:rgb(248,245,242);stroke:none;' /></svg>");
+    background-size: 100% 35px; 
+  }
+
+  @media @tablet-widths {
+
+    &::after {
+      // content: "tablet-widths";
+      height: 41px;
+
+      background-size: 100% 41px; 
+    }
+  }
+
+  @media @desktop-widths {
+
+    &::after {
+      // content: "desktop-widths";
+      height: 65px;
+
+      background-size: 100% 65px; 
+    }
+  }
+}
+
+.polygon--grey() {
+  .polygon();
+
+  &::after {
+   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 45' preserveAspectRatio='none'><polygon points='0,0 0,45 600,45 600,0 300,45' style='fill:rgb(53,53,53);stroke:none;' /></svg>");
+ }
+}
+
+.polygon--darkgrey() {
+  .polygon();
+
+  &::after {
+   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 45' preserveAspectRatio='none'><polygon points='0,0 0,45 600,45 600,0 300,45' style='fill:rgb(41,41,41);stroke:none;' /></svg>");
+ }
 }

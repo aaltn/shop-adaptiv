@@ -1,4 +1,7 @@
 .portfolio {
+	// .polygon();
+	.polygon--grey();
+
 	color: #000000;
 	background-color: #f8f5f2;
 }
@@ -6,7 +9,8 @@
 .portfolio__wrapper {
 	.container();
 
-	padding-bottom: 35px;
+	// padding-bottom: 35px;
+	padding-bottom: 53px;
 }
 
 .portfolio__slogan {
@@ -56,12 +60,10 @@
 	position: relative;
 
 	&::before {
-		background-color: #826550;
-		color: #ffffff;
 		content: "Работа месяца";
 
 		position: absolute;
-		left: 0;
+		left: -4px;
 		top: 401px;
 
 		font-size: 20px;
@@ -75,11 +77,28 @@
 
 		text-align: center;
 		text-transform: uppercase;
-		
+
+		background-color: #826550;
+		color: #ffffff;
+
+		// box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 	}
 
 	&::after {
+		content: "";
 
+		position: absolute;
+		top: 401px;
+		left: 147px;
+
+		height: 0px;		
+		width: 0px;
+
+		border: 25px solid #826550;
+		border-left: 15px solid transparent;
+		border-right: 15px solid transparent;
+
+		// box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
 	}
 }
 
@@ -122,7 +141,7 @@
 
 	display: inline-block;
 	padding-bottom: 18px;
-	padding-right: 30px;
+	padding-right: 25px;
 	padding-left: 30px;
 
 	font-size: 16px;
@@ -131,26 +150,31 @@
 	text-transform: uppercase;
 	vertical-align: top;
 
-	&::before {
-		background-repeat: no-repeat;
+	&::before {		
 		content: "";
 		position: absolute;
+
+		background-repeat: no-repeat;
 	}
 
 	&--cut::before {
-		background-image: url(../img/scissors-icon.svg);
-		height: 21px;
 		left: -1px;
 		top: 1px;
+
 		width: 23px;
+		height: 21px;
+
+		background-image: url(../img/scissors-icon.svg);
 	}
 
 	&--shave::before {
-		background-image: url(../img/beard-icon.svg);
-		height: 21px;
 		left: -5px;
 		top: 1px;
+
 		width: 23px;
+		height: 21px;
+
+		background-image: url(../img/beard-icon.svg);
 	}
 
 	&--mustache {
@@ -158,19 +182,23 @@
 	}
 
 	&--mustache::before {
-		background-image: url(../img/mustache-icon.svg);
-		height: 21px;
 		left: -10px;
 		top: 6px;
+
 		width: 45px;
+		height: 21px;		
+
+		background-image: url(../img/mustache-icon.svg);
 	}
 
 	&--beard::before {
-		background-image: url(../img/beard-icon.svg);		
-		height: 21px;
 		left: -5px;
 		top: 1px;
+
 		width: 23px;
+		height: 21px;		
+		
+		background-image: url(../img/beard-icon.svg);
 	}
 
 }
@@ -184,10 +212,16 @@
 }
 
 
-@media @tablet-widths { 
+@media @tablet-widths {
+
+	.portfolio {
+
+		// .polygon();
+	}
 
 	.portfolio__wrapper {
 		padding-top: 55px;
+		padding-bottom: 103px;
 	}
 
 	.portfolio__header {
@@ -201,6 +235,7 @@
 		display: inline;
 		padding-bottom: 0;
 		padding-top: 0;
+		font-size: 40px;
 	}
 
 	.portfolio__btn-home {
@@ -229,21 +264,38 @@
 		border-left: none;
 	}
 
+	.portfolio__item--work-of-month {
+
+		&::before {
+			top: 35px;
+		}
+
+		&::after {
+			top: 35px;
+		}
+	}
+
 }
 
 @media @desktop-widths {
 
 	.portfolio__wrapper {
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
+		flex-wrap: wrap;		
 	}
 
 	.portfolio__item {		
-		flex-direction: column;
+		flex-direction: column;	
 
-		// margin-right: 40px;
-		
+		margin-right: 38px;	
+
+		&:last-child {
+			margin-bottom: 40px;
+		}
+
+		&:nth-child(3n - 1) {    
+			margin-right: 0;
+		} 		
 	}
 
 	.portfolio__foto {	
@@ -252,27 +304,40 @@
 
 	.portfolio__desc {
 		width: 202px;
-		
+		height: 100%;
 
 		border-left: 1px solid #e5ddd5;
 		border-top: none;
-
-		&:last-child {
-			margin-right: 0;
-		}
 	}
 
 
 	.portfolio__item--work-of-month {
 		flex-direction: row;
 		width: 100%;
-	}
+		// margin-bottom: 40px;
+		&::before {
+			left: auto;
+			top: 27px;
+			right: -4px;			
+		}
+		
+		&::after {
+			left: auto;
+			top: 27px;
+			right: 148px;			
+	}		
+}
 
+.portfolio__item--work-of-month .portfolio__foto {
+	width: 480px;
+	height: 480px;
+}
 
-	.portfolio__item--work-of-month .portfolio__desc {
-		width: 100%;
-		border-top: 1px solid #e5ddd5;
-		border-left: none;
-	}
+.portfolio__item--work-of-month .portfolio__desc {
+	width: 100%;
+	height: auto;
+	border-top: 1px solid #e5ddd5;
+	border-left: none;
+}
 
 }
