@@ -1,11 +1,8 @@
 // order-form
 
-.order-form {
-  // width: auto;  
-  margin: 0 20px;  
-  padding-bottom: 76px;
-  // padding-bottom: 39px;
-  // text-align: center;
+.order-form {  
+	margin: 0 20px;  
+	padding-bottom: 76px;  
 }
 
 .order-form__contacts {
@@ -37,7 +34,6 @@ input[type="password"] {
 	margin-bottom: 6px;
 }
 
-// .order-form__information, 
 .order-form__field,
 .order-form__field--information {
 	width: 100%;
@@ -67,40 +63,165 @@ input[type="password"] {
 	width: 100%;
 }
 
-.order-form__field--information {
-	// width: 100%;
+.order-form__field--information {	
 	height: 112px;
 	resize: none;
 }
 
-// .order-form__model 
 .order-form__beard-model {	
 	display: flex;
 	width: 100%;
 	flex-wrap: wrap;
 	flex-direction: column;
-
-	justify-content: center;
-	text-align: center;	
+	justify-content: center;	
 }
 
-
-.order-form__beard-model .order-form__title {
-	margin-bottom: 50px;
-	width: 100%;
+.order-form fieldset {
+	border: none;
 }
 
 .order-form__title {	
-	display: block;
+	margin-bottom: 30px;
+	padding: 0 10px;
+
 	font-size: 20px;
 	line-height: 27px;
 	font-weight: normal;
 	text-transform: uppercase;	
+	text-align: center;	
 }
 
-.order-form__field--model {
-	// width: auto;
+.order-form__list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center; 
+	
+	margin: 0;
+	padding: 0;
+
+	list-style: none;	
 }
+
+.order-form__list li {	
+	margin-bottom: 40px;	
+}
+
+.order-form__list--model li {
+	margin-left: 18px;
+	margin-right: 18px;
+}
+
+.order-form__list--additional li {}
+
+.order-form__label {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	
+	cursor: pointer;
+
+	&:hover .order-form__check-indicator {		
+		border-color: #d5c9bd;
+	}
+	&:active .order-form__check-indicator {		
+		background: #d5c9bd;
+	}
+
+}
+
+.order-form__label  img {
+	margin-top: 15px;
+}
+
+.order-form__label--model {
+	align-items: center;
+	padding-top: 65px;
+}
+
+.order-form__label--additional {	
+	width: 150px;
+	padding-left: 59px;	
+}
+
+// скрываем стандартные чекбоксы и радиобатонны
+.order-form__field--model,
+.order-form__field--additional {	
+	display: none;	
+}
+
+//рисуем свои чекбоксы и радиобатонны
+.order-form__check-indicator {
+	position: absolute;
+	top: 0px;
+	
+	width: 40px;
+	height: 40px;
+	border: 2px solid #e5ddd5;
+	background: @white;
+}
+
+input[type="radio"] + .order-form__check-indicator {
+	border-radius: 50%;
+}
+
+input[type="checkbox"] + .order-form__check-indicator {
+	top: -6px;
+	left: 0;
+
+	width: 35px;
+	height: 35px;
+
+	border-radius: 10%;
+}
+
+input[type="radio"]:checked + .order-form__check-indicator {
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		display: block;
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		border: 2px solid #d5c9bd;
+		background: #d5c9bd;		
+	}
+}
+
+input[type="checkbox"]:checked + .order-form__check-indicator {
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 20px;
+		left: 4px;
+		display: block;
+		width: 12px;
+		height: 2px;
+		
+		background: #000000;
+		transform: rotate(45deg);		
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 16px;
+		left: 10px;
+		display: block;
+		width: 26px;
+		height: 2px;
+		
+		background: #000000;
+		transform: rotate(-45deg);		
+	}
+
+}
+
 
 .order-form__additional-service {}
 
@@ -122,6 +243,11 @@ input[type="password"] {
 		background-color: @darkbraun;
 		border: 1px solid #826550;
 	}
+
+	&:active {
+		// background-color: @darkbraun;
+		border: 1px solid @white;
+	}
 }
 
 @media @mobile-widths-only {
@@ -139,13 +265,11 @@ input[type="password"] {
 	}
 
 	.order-form__name {
-		display: flex;
-		
+		display: flex;		
 	}
 
 	.order-form__name,
 	.order-form__communications {
-
 		margin-bottom: 35px;	
 	}
 
@@ -163,23 +287,9 @@ input[type="password"] {
 
 	.order-form__field,
 	.order-form__field--information {
-		// width: 100%;
-		min-height: 70px;
-		// padding: 9px 18px;
+		min-height: 70px;		
 
 		font-size: 24px;	
-		// line-height: 30px;	
-		// color: #000000;
-
-		// border: 1px solid #e5ddd5;
-
-		&:hover {
-			// border-color: #d5cabe;
-		}
-
-		&:focus {
-			// border-color: #999999;
-		}
 	}
 
 	.order-form__field--name {
@@ -187,23 +297,13 @@ input[type="password"] {
 		width: 33.333%;
 	}
 
-	.order-form__model {
-
-		&::before {
-			border-top: 1px solid #e5ddd5;
-			content: "";
-			display: block;
-			height: 1px;
-			left: 0;
-			position: relative;
-			top: 17px;
-			width: 100%;			
-		}
+	.order-form fieldset {	
+		border-top: 1px solid #e5ddd5;
 	}
 
 	.order-form__title {
 		margin-bottom: 45px;
-		padding: 0 40px;
+		padding: 0 12px;
 		margin-bottom: 39px;
 		padding: 0 25px;
 		width: auto;
@@ -215,6 +315,23 @@ input[type="password"] {
 		position: relative;
 		text-align: center;
 		vertical-align: top;
+	}
+
+	.order-form__list--model {
+		justify-content: space-between;
+	}
+
+	.order-form__list li {
+		margin-bottom: 55px;
+	}
+
+	.order-form__label {
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	.order-form__label--additional {
+		width: 220px;	
 	}
 
 }
@@ -229,8 +346,7 @@ input[type="password"] {
 		justify-content: space-between; 
 	}
 
-	.order-form__field--name {
-		// margin: 0;
+	.order-form__field--name {		
 		width: 30.7%;		
 	}
 
@@ -247,9 +363,10 @@ input[type="password"] {
 		padding: 0 40px;
 	}
 	
-	.order-form__title {
-		
+	.order-form__title {}
+
+	.order-form__list {
+		justify-content: space-between;
 	}
 
 }
-
